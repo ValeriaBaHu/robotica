@@ -2,7 +2,7 @@
 
 Here is a representation of the graph you should get at the end. 
 
-<img src="../recursos/imgs/diag.jpeg" alt="Diagram" width="420">
+<img src="../recursos/imgs/diagram.png" alt="Diagram" width="420">
 
 Blue boxes are nodes, green are topics.
 
@@ -33,7 +33,7 @@ In the number_counter node, the publisher will publish messages directly from th
 
 ---
 ##Diagram
-<img src="../recursos/imgs/ibero.jpeg" alt="Diagram" width="420">
+<img src="../recursos/imgs/diagrama.png" alt="Diagram" width="420">
 
 ## Codes
 
