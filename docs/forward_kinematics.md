@@ -1,5 +1,5 @@
-# Matrix  and DH placement 
-
+# Forward Kinematics
+## Matrix  and DH placement
 ## Exercise 1
 
 <img src="../recursos/imgs/ex1.png" alt="Diagram" width="400">
