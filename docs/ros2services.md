@@ -17,7 +17,7 @@ And now, here is what we’ll add:
 
 ---
 
-<img src="../recursos/imgs/ejg.png" alt="Diagram" width="420">
+<img src="../recursos/imgs/ejgor.png" alt="Diagram" width="420">
 
 ## Codes
 
@@ -165,3 +165,11 @@ setup(
 )
 
 ```
+## Termial
+Now when we run this code in the terminal:
+
+<img src="../recursos/imgs/rqt.png" alt="Diagram" width="420">
+
+We get this graph:
+
+<img src="../recursos/imgs/ejg.png" alt="Diagram" width="420">
