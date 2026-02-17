@@ -21,64 +21,7 @@ And now, here is what we’ll add:
 
 ## Codes
 
-1. **Subscriber and publisher code**  
-
-``` codigo
-
-#!/usr/bin/env python3
-#!/usr/bin/env python3
-
-import rclpy
-from rclpy.node import Node
-from example_interfaces.msg import Int64
-
-
-class NumberCounter(Node):
-
-    def __init__(self):
-        super().__init__('number_counter')
-
-        self.counter = 0
-
-        self.subscription = self.create_subscription(
-            Int64,
-            '/number',
-            self.listener_callback,
-            10
-        )
-
-        self.publisher_ = self.create_publisher(
-            Int64,
-            '/number_count',
-            10
-        )
-
-        self.get_logger().info('Number Counter iniciado')
-
-    def listener_callback(self, msg):
-        self.counter += msg.data
-
-        out_msg = Int64()
-        out_msg.data = self.counter
-        self.publisher_.publish(out_msg)
-
-        self.get_logger().info(
-            f'Recibido: {msg.data} | Total acumulado: {self.counter}'
-        )
-
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = NumberCounter()
-    rclpy.spin(node)
-    rclpy.shutdown()
-
-
-if __name__ == '__main__':
-    main()
-
-```
-2. **Publisher code**  
+1. **Publisher code**  
 
 ``` codigo
 
@@ -122,50 +65,98 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 
-```
 
-2. **Setup py code**  
+```
+2. **Couter code**  
 
 ``` codigo
 
-from setuptools import find_packages, setup
+#!/usr/bin/env python3
 
-package_name = 'my_rob'
+import rclpy
+from rclpy.node import Node
+from example_interfaces.msg import Int64
+from example_interfaces.srv import SetBool
 
-setup(
-    name=package_name,
-    version='0.0.0',
-    packages=find_packages(exclude=['test']),
-    data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-    ],
-    install_requires=['setuptools'],
-    zip_safe=True,
-    maintainer='valeria',
-    maintainer_email='valeria@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
-    entry_points={
-        'console_scripts': [
-            'r2d2 = my_rob.my_first_node:main',
-            'number_publisher = myrob_pkg.number_publisher:main',
-            'number_counter = my_rob.number_counter:main',
-            'other_file = myrob_pkg.other_file:main',
-            'number_publisher2 = my_rob.number_publisher2:main',
-            'number_counter2 = my_rob.number_counter2:main',
-        ],
-    },
-)
+
+class NumberCounter(Node):
+
+    def __init__(self):
+        super().__init__('number_counter')
+
+        self.counter = 0
+
+        self.subscription = self.create_subscription(
+            Int64,
+            '/number',
+            self.listener_callback,
+            10
+        )
+
+        self.publisher_ = self.create_publisher(
+            Int64,
+            '/number_count',
+            10
+        )
+
+        
+        self.reset_service = self.create_service(
+            SetBool,
+            'reset_counter',   
+            self.reset_counter_callback
+        )
+
+        self.get_logger().info('Number Counter iniciado')
+        self.get_logger().info('Servicio /reset_counter listo')
+
+    def listener_callback(self, msg):
+        self.counter += msg.data
+
+        out_msg = Int64()
+        out_msg.data = self.counter
+        self.publisher_.publish(out_msg)
+
+        self.get_logger().info(
+            f'Recibido: {msg.data} | Total acumulado: {self.counter}'
+        )
+
+    
+    def reset_counter_callback(self, request, response):
+
+        if request.data:
+            self.counter = 0
+            response.success = True
+            response.message = "Contador reseteado a 0"
+            self.get_logger().info("Contador reseteado a 0")
+        else:
+            response.success = False
+            response.message = "No se reseteó (data fue False)"
+
+        return response
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = NumberCounter()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+
 
 ```
-## Termial
+## Termial Results
+
+<img src="../recursos/imgs/3.1.png" alt="Diagram" width="420">
+
+
+<img src="../recursos/imgs/3.2.png" alt="Diagram" width="420">
+
+
+<img src="../recursos/imgs/3.3.png" alt="Diagram" width="420">
+
 Now when we run this code in the terminal:
 
 <img src="../recursos/imgs/rqt.png" alt="Diagram" width="420">
