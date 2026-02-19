@@ -38,10 +38,8 @@ class LedPanel(Node):
     def __init__(self):
         super().__init__('led_panel')
 
-        # Estado inicial: todos apagados
         self.leds = [0, 0, 0]
 
-        # Publicador del estado
         self.publisher_ = self.create_publisher(
             LedPanelState,
             'led_panel_state',
@@ -55,7 +53,6 @@ class LedPanel(Node):
             self.set_led_callback
         )
 
-        # Timer para publicar estado cada segundo
         self.timer = self.create_timer(1.0, self.publish_state)
 
         self.get_logger().info("LED Panel iniciado")
@@ -68,7 +65,6 @@ class LedPanel(Node):
 
     def set_led_callback(self, request, response):
 
-        # Verificamos que el número sea válido
         if request.led_number >= 0 and request.led_number < len(self.leds):
 
             if request.state:
@@ -118,7 +114,6 @@ class Battery(Node):
 
         self.empty = False
 
-        # Timer que se ejecuta cada 4 segundos
         self.timer_empty = self.create_timer(4.0, self.make_empty)
 
         self.get_logger().info("Battery iniciado")
@@ -129,12 +124,10 @@ class Battery(Node):
         request.led_number = 0
 
         if not self.empty:
-            # Se vacía
             self.get_logger().info("LOW Battery: LED ON")
             request.state = True
             self.empty = True
         else:
-            # Se llena
             self.get_logger().info("Full Batery: LED OFF")
             request.state = False
             self.empty = False
