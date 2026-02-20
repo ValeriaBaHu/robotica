@@ -46,7 +46,6 @@ class LedPanel(Node):
             10
         )
 
-        # Servicio
         self.service = self.create_service(
             SetLed,
             'set_led',
