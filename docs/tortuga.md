@@ -266,3 +266,5 @@ ros2 run turtlesim_catch_them_all turtle_controller
 * TurtleSim program runs
 
 <img src="../recursos/imgs/5.4.png" alt="Diagram" width="420">
+
+<p> link de video: https://youtu.be/yMs9FbAgi54 </p>
