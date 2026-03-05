@@ -1,10 +1,30 @@
 # URDF robots
  
+
+## Team 
+
+Valeria Barroso Huitrón
+
+Carlos Sebastian Eugenio Reyes
+
+Pablo Eduardo López Manzano
+
+## Activity Goals
+
+* Analyze existing robot examples to identify the kinematic chain, distinguishing between links of our rigid bodies and joints of each revolute or prismatic move of the robot.
+
+* Assign coordinate frames to each joint according to Denavit-Hartenberg conventions and calculate the four parameters theta, d, a, alpha for every degree of freedom.
+
+* Formulate the transformation matrices to verify that the mathematical model correctly represents the robot's workspace and end-effector position.
+
+* Translate the DH table into a URDF file, defining the link and joint tags with their respective spatial offsets and rotation axis.
+* Launch the robot model in RViz to validate the coordinate transforms (TF tree) and test joint movements.
+
 ## Exercise 1
 
 <img src="../recursos/imgs/ex1.png" alt="Diagram" width="400">
 
-Model 
+RVIZ simulation 
 
 <img src="../recursos/imgs/6.1.png" alt="Diagram" width="800">
 
@@ -117,7 +137,7 @@ Model
 
 <img src="../recursos/imgs/ex2.png" alt="Diagram" width="400">
 
-Model 
+RVIZ simulation 
 
 <img src="../recursos/imgs/6.2.png" alt="Diagram" width="800">
 
@@ -215,7 +235,7 @@ Model
 <img src="../recursos/imgs/diagr3.png" alt="Diagram" width="400"> 
 
 
-Model 
+RVIZ simulation 
 
 <img src="../recursos/imgs/6.4.png" alt="Diagram" width="800">
 
@@ -376,7 +396,7 @@ Model
 
 <img src="../recursos/imgs/ex4.png" alt="Diagram" width="400">
 
-Model 
+RVIZ simulation 
 
 <img src="../recursos/imgs/6.3.png" alt="Diagram" width="800">
 
@@ -529,7 +549,7 @@ Code
 
 <img src="../recursos/imgs/ex5.png" alt="Diagram" width="400">
 
-Model 
+RVIZ simulation 
 
 <img src="../recursos/imgs/6.5.png" alt="Diagram" width="800">
 
