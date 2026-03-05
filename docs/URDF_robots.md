@@ -4,6 +4,10 @@
 
 <img src="../recursos/imgs/ex1.png" alt="Diagram" width="400">
 
+Model 
+
+<img src="../recursos/imgs/6.1.png" alt="Diagram" width="800">
+
 ## Code
 
  SetLed.srv
@@ -113,6 +117,10 @@
 
 <img src="../recursos/imgs/ex2.png" alt="Diagram" width="400">
 
+Model 
+
+<img src="../recursos/imgs/6.2.png" alt="Diagram" width="800">
+
 ## Code
 
 ``` codigo
@@ -205,6 +213,11 @@
 ## Exercise 3
 
 <img src="../recursos/imgs/diagr3.png" alt="Diagram" width="400"> 
+
+
+Model 
+
+<img src="../recursos/imgs/6.4.png" alt="Diagram" width="800">
 
 ``` codigo
 
@@ -363,6 +376,10 @@
 
 <img src="../recursos/imgs/ex4.png" alt="Diagram" width="400">
 
+Model 
+
+<img src="../recursos/imgs/6.3.png" alt="Diagram" width="800">
+
 Code
 
 ``` codigo
@@ -511,6 +528,10 @@ Code
 ## Exercise 5
 
 <img src="../recursos/imgs/ex5.png" alt="Diagram" width="400">
+
+Model 
+
+<img src="../recursos/imgs/6.5.png" alt="Diagram" width="800">
 
 ``` codigo
 <?xml version="1.0"?>
